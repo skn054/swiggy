@@ -1,17 +1,22 @@
-import React from 'react';
-import './App.css';
-import Header from './components/Header';
-import Body from './components/Body';
+import React from "react";
+import "./App.css";
+import Header from "./components/Header";
 
-function App(){
+import { Outlet } from "react-router-dom";
+import useOnline from "./components/utils/useOnline";
+
+function App({ getText }) {
+  console.log("App component");
+  const isOnline = useOnline();
+  if(!isOnline)
+    return <h1>User Offline!. Please check Internet conection.</h1>
   return (
-    <div>
-      <Header/>
-      <Body/>
-    </div>
-  );
+    <>
+      <Header />
 
+      <Outlet />
+    </>
+  );
 }
 
- 
 export default App;

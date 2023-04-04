@@ -1,5 +1,15 @@
 export const LOGO_IMG_SRC = 'https://play-lh.googleusercontent.com/A8jF58KO1y2uHPBUaaHbs9zSvPHoS1FrMdrg8jooV9ftDidkOhnKNWacfPhjKae1IA';
 
+// shimmer card unit
+export const shimmer_card_unit = 8;
+
+// shimmer Menu card unit
+export const shimmer_menu_card_unit = 4;
+
+export const RESTAURANT_LIST = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.511614&lng=78.512193&page_type=DESKTOP_WEB_LISTING";
+
+export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
+
 export const RESTAURANT_IMAGE_URL = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/";
 export const restaurantList = {"cards": [
     {

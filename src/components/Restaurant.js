@@ -1,33 +1,40 @@
 import React from "react";
 import { RESTAURANT_IMAGE_URL } from "./config";
 
-export default function Restaurant(props) {
-//   console.log(props);
+export default function Restaurant({
+  cloudinaryImageId,
+  name,
+  cuisines,
+  avgRating,
+  sla,
+  costForTwoString,
+  aggregatedDiscountInfo,
+}) {
+  // console.log(props);
   return (
     <>
-        <img
-         className="restaurant-image"
-          alt="restaurantimage"
-          src={RESTAURANT_IMAGE_URL + props.data.cloudinaryImageId}
-        ></img>
-        <div className="restaurant-desc">
-          <div className="desc">{props.data.name}</div>
-          <div className="cuisines">{props.data.cuisines.join(", ")}</div>
-        </div>
+      <img
+        className="restaurant-image"
+        alt="restaurantimage"
+        src={RESTAURANT_IMAGE_URL + cloudinaryImageId}
+      ></img>
+      <div className="restaurant-desc">
+        <div className="desc">{name}</div>
+        <div className="cuisines">{cuisines.join(", ")}</div>
+      </div>
 
-        <div className="rating-list">
-          <div className="rating">{props.data.avgRating}</div>
-          <div>•</div>
-          <div>{props.data.sla.deliveryTime}</div>
-          <div>•</div>
-          <div>{props.data.costForTwoString}</div>
-        </div>
-        <div className="offer">
-          <span className="offer-desc">
-          {
-            props.data?.aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
+      <div className="rating-list">
+        <div><span className="rating" style={Number(avgRating) >= 4 ? {backgroundColor:"#48c479"}:{backgroundColor:"#db7c38"}}>{avgRating}</span></div>
+        <div>•</div>
+        <div>{sla?.deliveryTime}</div>
+        <div>•</div>
+        <div>{costForTwoString}</div>
+      </div>
+      <div className="offer">
+        <span className="offer-desc">
+          {aggregatedDiscountInfo?.shortDescriptionList[0]?.meta}
         </span>
-        </div>
+      </div>
     </>
   );
 }
